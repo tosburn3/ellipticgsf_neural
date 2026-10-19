@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ellipticgsf_neural"
+version = "1.0.0"
+description = "Neural preconditioners for the elliptic m-mode equations of the gravitational self-force"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "numba"]
+
+[project.optional-dependencies]
+neural = ["torch"]
+scripts = ["torch", "matplotlib", "psutil", "threadpoolctl"]
+test = ["pytest"]
+
+[tool.setuptools]
+packages = ["ellipticgsf_neural"]
+
+[tool.setuptools.package-data]
+ellipticgsf_neural = ["models/*.pt", "effective_source/*", "effective_source/gsl/*"]
